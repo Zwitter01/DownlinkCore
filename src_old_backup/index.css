@@ -1,0 +1,510 @@
+﻿@import "tailwindcss";
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   SINGULARITY Design System â€” Black Hole Singularity + Apple Liquid Glass
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --singularity-void: #000000;
+  --singularity-nebula: #06001a;
+  --singularity-event-horizon: #7c3aed;
+  --singularity-hawking: #c026d3;
+  --singularity-accretion: #ff6b00;
+  --singularity-plasma: #f59e0b;
+  --singularity-plasma-red: #ef4444;
+  --singularity-glass-tint: rgba(124, 58, 237, 0.06);
+
+  --apple-red: #FF453A;
+  --apple-amber: #FF9F0A;
+  --apple-green: #30D158;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Deep Space Universe Theme: Glowing nebulae, starry depths & stellar dust clouds */
+  background-color: #06050e;
+  background-image: 
+    /* Upper-left: Glowing Carina Nebula - violet & indigo luminescence */
+    radial-gradient(ellipse 95% 65% at 15% -10%, rgba(139, 92, 246, 0.35) 0%, rgba(99, 102, 241, 0.20) 35%, transparent 70%),
+    /* Upper-right: Ionized magenta / fuchsia cosmic gas cloud */
+    radial-gradient(ellipse 85% 60% at 88% 20%, rgba(217, 70, 239, 0.30) 0%, rgba(168, 85, 247, 0.16) 40%, transparent 68%),
+    /* Lower-right: Electric cyan / Aquila stellar wind nursery */
+    radial-gradient(ellipse 80% 55% at 80% 85%, rgba(6, 182, 212, 0.26) 0%, rgba(14, 165, 233, 0.14) 35%, transparent 65%),
+    /* Lower-left: Warm golden amber Sagittarius stellar dust */
+    radial-gradient(ellipse 70% 50% at 12% 80%, rgba(245, 158, 11, 0.18) 0%, rgba(244, 63, 94, 0.10) 35%, transparent 60%),
+    /* Center galactic core glow */
+    radial-gradient(circle at 50% 45%, rgba(124, 58, 237, 0.15) 0%, rgba(192, 38, 211, 0.08) 30%, transparent 60%),
+    /* Deep cosmic canvas with subtle midnight navy & deep plum gradient */
+    linear-gradient(145deg, #0d0822 0%, #080516 40%, #04091a 75%, #030510 100%);
+  background-attachment: fixed;
+  color: #f5f5f7;
+  font-family: -apple-system, 'SF Pro Text', BlinkMacSystemFont, 'SF Pro Display', Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cosmic Aurora haze overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(circle at 35% 35%, rgba(168, 85, 247, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(217, 70, 239, 0.10) 0%, transparent 40%);
+  animation: universeAurora 20s ease-in-out infinite alternate;
+}
+
+@keyframes universeAurora {
+  0% {
+    opacity: 0.65;
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03) translate(-8px, 6px);
+  }
+  100% {
+    opacity: 0.75;
+    transform: scale(0.98) translate(6px, -5px);
+  }
+}
+
+/* 100-star CSS starfield via viewport-scaled box-shadow */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1.5px;
+  height: 1.5px;
+  background: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+  box-shadow:
+    3vw 4vh 0 rgba(255,255,255,0.8),
+    7vw 18vh 0 rgba(255,255,255,0.6),
+    12vw 8vh 0 rgba(255,255,255,0.9),
+    15vw 29vh 0 rgba(220,210,200,0.5),
+    18vw 47vh 0 rgba(255,255,255,0.5),
+    22vw 12vh 0 rgba(255,255,255,0.8),
+    26vw 38vh 0 rgba(200,195,190,0.4),
+    29vw 62vh 0 rgba(255,255,255,0.4),
+    33vw 19vh 0 rgba(255,255,255,0.9),
+    37vw 82vh 0 rgba(255,255,255,0.6),
+    41vw 4vh 0 rgba(255,255,255,0.7),
+    44vw 27vh 0 rgba(255,255,255,0.8),
+    48vw 51vh 0 rgba(220,210,200,0.5),
+    52vw 14vh 0 rgba(255,255,255,0.9),
+    56vw 73vh 0 rgba(255,255,255,0.5),
+    59vw 33vh 0 rgba(255,255,255,0.8),
+    63vw 89vh 0 rgba(255,255,255,0.4),
+    67vw 22vh 0 rgba(200,195,190,0.4),
+    71vw 6vh 0 rgba(255,255,255,0.8),
+    74vw 44vh 0 rgba(255,255,255,0.9),
+    78vw 68vh 0 rgba(255,255,255,0.6),
+    82vw 17vh 0 rgba(255,255,255,0.7),
+    86vw 53vh 0 rgba(220,210,200,0.5),
+    89vw 31vh 0 rgba(255,255,255,0.5),
+    93vw 77vh 0 rgba(255,255,255,0.8),
+    96vw 11vh 0 rgba(255,255,255,0.9),
+    5vw 92vh 0 rgba(255,255,255,0.6),
+    9vw 58vh 0 rgba(255,255,255,0.8),
+    14vw 76vh 0 rgba(200,195,190,0.4),
+    20vw 88vh 0 rgba(255,255,255,0.7),
+    24vw 96vh 0 rgba(255,255,255,0.5),
+    28vw 69vh 0 rgba(255,255,255,0.9),
+    35vw 41vh 0 rgba(255,255,255,0.6),
+    39vw 59vh 0 rgba(220,210,200,0.5),
+    46vw 93vh 0 rgba(255,255,255,0.8),
+    50vw 37vh 0 rgba(255,255,255,0.5),
+    54vw 64vh 0 rgba(255,255,255,0.9),
+    61vw 16vh 0 rgba(255,255,255,0.7),
+    65vw 48vh 0 rgba(200,195,190,0.4),
+    70vw 83vh 0 rgba(255,255,255,0.6),
+    76vw 36vh 0 rgba(255,255,255,0.8),
+    80vw 94vh 0 rgba(255,255,255,0.5),
+    85vw 71vh 0 rgba(255,255,255,0.9),
+    91vw 49vh 0 rgba(220,210,200,0.5),
+    95vw 86vh 0 rgba(255,255,255,0.6),
+    2vw 39vh 0 rgba(255,255,255,0.8),
+    8vw 84vh 0 rgba(255,255,255,0.7),
+    16vw 15vh 0 rgba(255,255,255,0.9),
+    23vw 56vh 0 rgba(200,195,190,0.4),
+    31vw 79vh 0 rgba(255,255,255,0.6),
+    36vw 2vh 0 rgba(255,255,255,0.8),
+    43vw 67vh 0 rgba(255,255,255,0.5),
+    49vw 21vh 0 rgba(255,255,255,0.9),
+    57vw 85vh 0 rgba(220,210,200,0.5),
+    62vw 9vh 0 rgba(255,255,255,0.8),
+    68vw 61vh 0 rgba(255,255,255,0.7),
+    73vw 97vh 0 rgba(255,255,255,0.5),
+    79vw 28vh 0 rgba(255,255,255,0.9),
+    84vw 3vh 0 rgba(200,195,190,0.4),
+    88vw 63vh 0 rgba(255,255,255,0.6),
+    94vw 24vh 0 rgba(255,255,255,0.8),
+    98vw 66vh 0 rgba(255,255,255,0.7),
+    4vw 65vh 0 rgba(255,255,255,0.9),
+    11vw 43vh 0 rgba(220,210,200,0.5),
+    17vw 91vh 0 rgba(255,255,255,0.5),
+    21vw 25vh 0 rgba(255,255,255,0.8),
+    27vw 5vh 0 rgba(255,255,255,0.6),
+    32vw 46vh 0 rgba(200,195,190,0.4),
+    38vw 74vh 0 rgba(255,255,255,0.7),
+    45vw 13vh 0 rgba(255,255,255,0.9),
+    51vw 81vh 0 rgba(255,255,255,0.5),
+    55vw 45vh 0 rgba(255,255,255,0.8),
+    60vw 98vh 0 rgba(220,210,200,0.5),
+    66vw 35vh 0 rgba(255,255,255,0.6),
+    72vw 72vh 0 rgba(255,255,255,0.9),
+    77vw 54vh 0 rgba(255,255,255,0.7),
+    83vw 87vh 0 rgba(200,195,190,0.4),
+    87vw 32vh 0 rgba(255,255,255,0.8),
+    92vw 5vh 0 rgba(255,255,255,0.5),
+    97vw 42vh 0 rgba(255,255,255,0.9),
+    1vw 80vh 0 rgba(255,255,255,0.6),
+    6vw 23vh 0 rgba(220,210,200,0.5),
+    10vw 95vh 0 rgba(255,255,255,0.7),
+    19vw 70vh 0 rgba(255,255,255,0.5),
+    25vw 17vh 0 rgba(255,255,255,0.9),
+    30vw 88vh 0 rgba(200,195,190,0.4),
+    34vw 52vh 0 rgba(255,255,255,0.6),
+    40vw 30vh 0 rgba(255,255,255,0.8),
+    47vw 78vh 0 rgba(255,255,255,0.5),
+    53vw 7vh 0 rgba(220,210,200,0.5),
+    58vw 60vh 0 rgba(255,255,255,0.9),
+    64vw 26vh 0 rgba(255,255,255,0.6),
+    69vw 75vh 0 rgba(255,255,255,0.8),
+    75vw 10vh 0 rgba(200,195,190,0.4),
+    81vw 40vh 0 rgba(255,255,255,0.5),
+    90vw 75vh 0 rgba(255,255,255,0.9),
+    99vw 90vh 0 rgba(255,255,255,0.7);
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Keyframe Animations
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+@keyframes singularityPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3), 0 0 60px rgba(124, 58, 237, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(192, 38, 211, 0.5), 0 0 100px rgba(124, 58, 237, 0.2);
+  }
+}
+
+@keyframes accretionSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes eventHorizonPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes particleDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(1.2);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blackHoleSuckIn {
+  0%   { transform: scale(1) rotate(0deg);   opacity: 1; filter: blur(0px) brightness(1); }
+  20%  { transform: scale(0.95) rotate(5deg); opacity: 0.95; filter: blur(1px) brightness(1.1); }
+  60%  { transform: scale(0.4) rotate(30deg); opacity: 0.6; filter: blur(6px) brightness(1.4); }
+  85%  { transform: scale(0.1) rotate(60deg); opacity: 0.2; filter: blur(14px) brightness(2); }
+  100% { transform: scale(0) rotate(90deg);  opacity: 0; filter: blur(30px) brightness(3); }
+}
+
+@keyframes blackHoleGrow {
+  0%   { transform: scale(0); opacity: 0; }
+  30%  { transform: scale(0.3); opacity: 0.7; }
+  70%  { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes blackHoleRingRotate {
+  from { transform: rotate(0deg) scaleX(1); }
+  to   { transform: rotate(360deg) scaleX(1); }
+}
+
+@keyframes blackHoleRingRotateReverse {
+  from { transform: rotate(0deg) scaleY(0.3); }
+  to   { transform: rotate(-360deg) scaleY(0.3); }
+}
+
+@keyframes lensFlare {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50%       { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes sphereReveal {
+  0%   { clip-path: circle(0% at 50% 50%);   opacity: 0; filter: brightness(3) saturate(0.3); }
+  15%  { clip-path: circle(5% at 50% 50%);   opacity: 0.5; filter: brightness(2.5) saturate(0.5); }
+  40%  { clip-path: circle(25% at 50% 50%);  opacity: 0.8; filter: brightness(1.8) saturate(0.7); }
+  70%  { clip-path: circle(65% at 50% 50%);  opacity: 0.95; filter: brightness(1.2) saturate(0.9); }
+  100% { clip-path: circle(150% at 50% 50%); opacity: 1; filter: brightness(1) saturate(1); }
+}
+
+@keyframes gravitationalWarp {
+  0%   { transform: perspective(600px) rotateX(0deg) scale(1); filter: blur(0px); }
+  50%  { transform: perspective(600px) rotateX(8deg) scale(0.95); filter: blur(2px); }
+  100% { transform: perspective(600px) rotateX(0deg) scale(1); filter: blur(0px); }
+}
+
+@keyframes blackHolePulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(255,180,80,0.4), 0 0 80px rgba(255,100,50,0.2), inset 0 0 30px rgba(0,0,0,1); }
+  50%       { box-shadow: 0 0 60px rgba(255,200,100,0.6), 0 0 120px rgba(255,120,60,0.3), inset 0 0 40px rgba(0,0,0,1); }
+}
+@keyframes shimmerGlass {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-singularity-pulse {
+  animation: singularityPulse 3s infinite ease-in-out;
+}
+
+.animate-accretion-spin {
+  animation: accretionSpin 20s linear infinite;
+}
+
+.animate-event-horizon {
+  animation: eventHorizonPulse 4s infinite ease-in-out;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-shimmer-glass {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(192,38,211,0.08) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerGlass 3s infinite linear;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Apple Liquid Glass Utility Classes
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.liquid-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(124,58,237,0.05) 50%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.3),
+    0 8px 32px rgba(0,0,0,0.6),
+    0 0 60px rgba(124,58,237,0.08);
+}
+
+.liquid-glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(124,58,237,0.04) 100%);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 8px 40px rgba(0,0,0,0.5),
+    0 0 0 0.5px rgba(255,255,255,0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-card:hover {
+  border-color: rgba(220,210,200,0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 8px 40px rgba(0,0,0,0.6),
+    0 0 30px rgba(124,58,237,0.15);
+}
+
+.liquid-glass-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.liquid-glass-input:focus {
+  outline: none;
+  border-color: rgba(220,210,200,0.5);
+  box-shadow: 0 0 0 3px rgba(200,195,190,0.4);
+}
+
+.liquid-glass-btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
+  box-shadow: 0 4px 20px rgba(200,195,190,0.4);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 6px 28px rgba(192,38,211,0.55);
+}
+
+.heading-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading-singularity {
+  background: linear-gradient(135deg, #ffffff 20%, #c026d3 65%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   React Grid Layout Overrides (Singularity Black Hole Accents)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+.animate-black-hole-suck {
+  animation: blackHoleSuckIn 2.2s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.animate-black-hole-grow {
+  animation: blackHoleGrow 1.4s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+}
+
+.animate-sphere-reveal {
+  animation: sphereReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-grav-warp {
+  animation: gravitationalWarp 0.8s ease-in-out;
+}
+
+.black-hole-pulse {
+  animation: blackHolePulse 2s ease-in-out infinite;
+}
+
+.ring-spin {
+  animation: blackHoleRingRotate 3s linear infinite;
+}
+.ring-spin-reverse {
+  animation: blackHoleRingRotateReverse 5s linear infinite;
+}
+.ring-spin-slow {
+  animation: blackHoleRingRotate 8s linear infinite;
+}
+.react-grid-item.react-grid-placeholder {
+  background: rgba(124, 58, 237, 0.08) !important;
+  border: 1px dashed rgba(192, 38, 211, 0.5) !important;
+  border-radius: 20px !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-resizable-handle {
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-grid-item:hover .react-resizable-handle {
+  opacity: 0.9;
+}
+
+.react-resizable-handle::after {
+  border-color: rgba(192, 38, 211, 0.8) !important;
+  border-radius: 1px;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Smooth Scrollbars (Apple style with subtle violet glow on hover)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 38, 211, 0.45);
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Focus ring
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+:focus-visible {
+  outline: 2px solid rgba(192, 38, 211, 0.6);
+  outline-offset: 2px;
+}
+
+

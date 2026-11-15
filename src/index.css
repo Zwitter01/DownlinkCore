@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+/* ── VYOMAASTRA "Singularity" theme ──────────────────────────────────────────
+   Remaps the Tailwind palette used across the dashboard pages so every page
+   (cyan accents, slate surfaces) picks up the violet / magenta / amber look. */
+@theme {
+  --color-cyan-300: #e9d5ff;
+  --color-cyan-400: #c084fc;
+  --color-cyan-500: #a855f7;
+  --color-cyan-600: #9333ea;
+  --color-cyan-700: #7e22ce;
+  --color-cyan-800: #6b21a8;
+  --color-cyan-900: #4c1d95;
+  --color-cyan-950: #2e1065;
+  --color-blue-500: #d946ef;
+  --color-blue-600: #c026d3;
+  --color-sky-400: #e879f9;
+  --color-sky-500: #d946ef;
+
+  --color-slate-100: #f3eeff;
+  --color-slate-200: #e2d9f7;
+  --color-slate-300: #c7bbe6;
+  --color-slate-400: #9e90c4;
+  --color-slate-500: #7a6ca3;
+  --color-slate-600: #574a80;
+  --color-slate-700: #3b2f63;
+  --color-slate-800: #231a40;
+  --color-slate-900: #130d28;
+  --color-slate-950: #08051a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+body {
+  background-color: #06050e;
+  color: #f5f3ff;
+  font-family: 'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* React Grid Layout overrides */
+.react-grid-item.react-grid-placeholder {
+  background: rgba(192, 132, 252, 0.1) !important;
+  border: 1px dashed rgba(192, 132, 252, 0.45) !important;
+  border-radius: 16px; opacity: 1 !important;
+}
+.react-resizable-handle { opacity: 0; transition: opacity .15s; }
+.react-grid-item:hover .react-resizable-handle { opacity: 1; }
+.react-resizable-handle::after { border-color: rgba(192, 132, 252, 0.6) !important; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(158, 144, 196, .3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(158, 144, 196, .5); }
+:focus-visible { outline: 2px solid rgba(192, 132, 252, .6); outline-offset: 2px; }
+
+/* Glass surfaces: every dashboard card gets a frosted, glowing finish */
+main .bg-slate-900\/60, main .bg-slate-900\/50, main .bg-slate-900\/40, main .bg-slate-900\/80 {
+  background-color: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 10px 40px -20px rgba(124,58,237,.5);
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.animate-fade-in { animation: fadeIn .35s ease-out; }
+
+
+@keyframes spin-cw { to { transform: rotate(360deg); } }
+@keyframes spin-ccw { to { transform: rotate(-360deg); } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.98); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes pulse-core { 0%,100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.08); opacity: 1; } }
+@keyframes sheen { from { transform: translateX(-120%); } to { transform: translateX(220%); } }
+@keyframes shake { 20%,60% { transform: translateX(-8px); } 40%,80% { transform: translateX(8px); } }
+@keyframes warp { to { transform: scale(18); opacity: 0; } }
+@keyframes drift { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(30px,-24px,0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bob { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(10px); opacity: 1; } }
+@keyframes sphere-reveal { from { clip-path: circle(0% at 50% 50%); } to { clip-path: circle(150% at 50% 50%); } }
+
+.rise { opacity: 0; animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; }
+.shake { animation: shake .45s; }
+.sphere-reveal { animation: sphere-reveal 2s cubic-bezier(.7,0,.2,1) forwards; }
+.sheen::after { content: ""; position: absolute; inset: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  animation: sheen 2.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ── Liquid glass ─────────────────────────────────────────────────────────── */
+.liquid-glass {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03) 45%, rgba(168,85,247,.08));
+  backdrop-filter: blur(22px) saturate(190%) brightness(1.08);
+  -webkit-backdrop-filter: blur(22px) saturate(190%) brightness(1.08);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.35),
+    inset 0 -1px 1px rgba(255,255,255,.06),
+    inset 0 0 22px rgba(255,255,255,.04),
+    0 18px 50px -22px rgba(124,58,237,.75);
+}
+/* moving specular highlight that slides across the surface */
+.liquid-glass::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.16) 48%, transparent 66%);
+  background-size: 260% 100%; background-position: 130% 0;
+  animation: glass-sweep 7s ease-in-out infinite;
+}
+@keyframes glass-sweep { 0%, 55% { background-position: 130% 0; } 100% { background-position: -80% 0; } }
+@keyframes twinkle { 0%,100% { opacity: .15; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.2); } }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes liquid-morph {
+  0%,100% { border-radius: 16px 20px 16px 22px; }
+  50% { border-radius: 22px 16px 22px 16px; }
+}
+@keyframes planet-spin { to { background-position: 200% 0; } }
+@keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes link-packet { from { left: -4%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } to { left: 100%; opacity: 0; } }
+@keyframes ping-ring { from { transform: scale(1); opacity: .8; } to { transform: scale(1.5); opacity: 0; } }
